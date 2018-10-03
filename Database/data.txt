@@ -1,0 +1,91 @@
+create database smartPlantWatering;
+
+
+use smartPlantWatering;
+
+
+create table if not exists user_details
+(
+contactNo varchar(50) PRIMARY KEY NOT NULL, 
+name varchar(100) NOT NULL,
+email varchar(100) NOT NULL,
+password varchar(100) NOT NULL,
+dateOfCreation datetime NOT NULL,
+dateOfDeletion datetime,
+isDelete varchar(20) NOT NULL DEFAULT 0,
+isBlocked varchar(20) NOT NULL DEFAULT 0
+)ENGINE=InnoDB;
+
+
+insert into user_details values(7775026761,"Nishant","nimbalkarnishant98@gmail.com","Nishant",now(),"NULL",0,0);
+
+create table user_verification
+(
+contactNo varchar(50) NOT NULL, 
+timeCounter time NOT NULL,
+otp int(20) NOT NULL,
+FOREIGN KEY(contactNo) REFERENCES user_details(contactNo) ON DELETE CASCADE 
+)ENGINE=InnoDB;
+
+
+create table if not exists plant_details
+(
+plantId varchar(50) PRIMARY KEY NOT NULL, 
+name varchar(100) NOT NULL
+)ENGINE=InnoDB;
+
+insert into plant_details values(1,"Rose");
+
+
+create table if not exists user_plant_rel
+(
+contactNo varchar(50) NOT NULL, 
+plantId varchar(50) NOT NULL, 
+soilMoisture varchar(100) NOT NULL,
+waterLevel varchar(100) NOT NULL,
+humidityLevel varchar(100) NOT NULL,
+temperature varchar(100) NOT NULL,
+pumpStatus varchar(100) NOT NULL,
+time time NOT NULL,
+FOREIGN KEY (contactNo) REFERENCES user_details(contactNo) ON DELETE CASCADE,
+FOREIGN KEY (plantId) REFERENCES plant_details(plantId) ON DELETE CASCADE
+)ENGINE=InnoDB;
+
+create table if not exists pump_plant
+(
+plantId varchar(50) NOT NULL,
+
+);
+
+
+insert into user_plant_rel values(7775026761,1,200,250,45,25,"OFF","09:15:15");
+insert into user_plant_rel values(7775026761,1,210,240,40,27,"OFF","09:30:15");
+insert into user_plant_rel values(7775026761,1,200,250,45,25,"OFF","09:45:15");
+insert into user_plant_rel values(7775026761,1,230,300,45,29,"OFF","10:00:15");
+insert into user_plant_rel values(7775026761,1,400,250,45,25,"ON","10:15:15");
+insert into user_plant_rel values(7775026761,1,200,250,45,25,"OFF","02:15:15");
+insert into user_plant_rel values(7775026761,1,150,250,45,25,"OFF","02:30:15");
+insert into user_plant_rel values(7775026761,1,170,250,45,25,"OFF","02:45:15");
+insert into user_plant_rel values(7775026761,1,200,250,45,25,"OFF","03:00:15");
+insert into user_plant_rel values(7775026761,1,450,250,45,25,"ON","03:15:15");
+
+
+
+
+
+create table if not exists feedback 
+(
+contactNo varchar(50) NOT NULL,
+feedback text NOT NULL,
+FOREIGN KEY (contactNo) REFERENCES user_details(contactNo) ON DELETE CASCADE
+)ENGINE=InnoDB;
+
+create table if not exists logs 
+(
+station varchar(100) NOT NULL,
+status varchar(100) NOT NULL,
+Date date NOT NULL,
+Time time NOT NULL
+)ENGINE=InnoDB;
+
+insert into logs values("Nishant","");

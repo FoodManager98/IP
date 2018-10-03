@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Progress Bar</title>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.js"></script> -->
+    <script type="text/javascript" src="day_night.js"></script>
+    <link rel="stylesheet" type="text/css" href="navbar.css">
+
+	<style type="text/css">
+		.outer_circle1{
+			/*position: absolute;*/
+			margin: 12vw;
+			margin-left: 10vw;
+			width: 40vh;
+			height: 40vh;
+			background: #fff;
+			border-radius: 50%;
+			position: absolute;
+			box-shadow: 0 0 0 1px #fff,0 0 0 6px #666;
+		}
+
+		.middle_circle1{
+			transform: rotate(180deg);
+			width: 100%;
+			overflow: hidden;
+			position: absolute;
+			bottom: 0;
+		}
+
+		.inner_circle1{
+			width: 40vh;
+			height: 40vh;
+			border-radius: 50%;
+			/*display: none;*/
+			/*transform: scale(0);*/
+			/*transition: 3s;*/
+			transform-origin: top;
+			transition-delay: 1s;
+			animation: animate 2s linear; 
+		}
+
+		.outer_circle2{
+			/*position: absolute;*/
+			margin: 12vw;
+			margin-left: 40vw;
+			width: 40vh;
+			height: 40vh;
+			background: #fff;
+			border-radius: 50%;
+			position: absolute;
+			box-shadow: 0 0 0 1px #fff,0 0 0 6px #666;
+		}
+
+		.middle_circle2{
+			transform: rotate(180deg);
+			width: 100%;
+			overflow: hidden;
+			position: absolute;
+			bottom: 0;
+		}
+
+		.inner_circle2{
+			width: 40vh;
+			height: 40vh;
+			border-radius: 50%;
+			/*display: none;*/
+			/*transform: scale(0);*/
+			/*transition: 3s;*/
+			transform-origin: top;
+			transition-delay: 1s;
+			animation: animate 2s linear; 
+		}
+
+		.outer_circle3{
+			/*position: absolute;*/
+			margin: 12vw;
+			margin-left: 70vw;
+			width: 40vh;
+			height: 40vh;
+			background: #fff;
+			border-radius: 50%;
+			position: absolute;
+			box-shadow: 0 0 0 1px #fff,0 0 0 6px #666;
+		}
+
+		.middle_circle3{
+			transform: rotate(180deg);
+			width: 100%;
+			overflow: hidden;
+			position: absolute;
+			bottom: 0;
+		}
+
+		.inner_circle3{
+			width: 40vh;
+			height: 40vh;
+			border-radius: 50%;
+			/*display: none;*/
+			/*transform: scale(0);*/
+			/*transition: 3s;*/
+			transform-origin: top;
+			transition-delay: 1s;
+			animation: animate 2s linear; 
+		}
+
+		@keyframes animate{
+			0%{
+				transform: scale(0);
+			}
+			100%{
+				transform: scale(1);
+			}
+		}
+/*
+		.inner_circle::after{
+			display: block;
+			transition: 
+		}
+*/
+		/*@keyframes animate{
+			0%{
+				background-position: bottom 800px;
+			}
+
+			40%{
+				background-position: top 
+			}
+		}
+*/
+	</style>
+</head>
+<body>
+	<nav class="navbar navbar-expand-sm">
+		<ul class="navbar-nav">
+			<li class="nav-item" >
+				<a class="nav-link" href="#"><span title="Home">Home</span></a>
+			</li>
+			<li class="nav-item" >
+				<a class="nav-link" href="#"><span title="Plant Status">Plant Status</span></a>
+			</li>
+			<li class="nav-item" >
+				<a class="nav-link" href="#"><span title="Suggested Plants">Suggested Plants</span></a>
+			</li>
+			<!-- <li class="nav-item">
+				<a class="nav-link" href="#" ><span title="Botanical Gardens">Botanical Gardens</span></a>
+			</li>
+ -->			<li class="nav-item">
+				<a class="nav-link" href="#" ><span title="About Us">About Us</span></a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#" ><span title="Login">Login</span></a>
+			</li>
+			<div class="toggle"></div>
+		</ul>
+	</nav>
+
+	<div class="outer_circle1">
+		<div id="middle_circle1" class="middle_circle1" >
+			<div id="inner_circle1" class="inner_circle1"></div>
+		</div>
+	</div>
+
+	<div class="outer_circle2">
+		<div id="middle_circle2" class="middle_circle2" >
+			<div id="inner_circle2" class="inner_circle2"></div>
+		</div>
+	</div>
+
+	<div class="outer_circle3">
+		<div id="middle_circle3" class="middle_circle3" >
+			<div id="inner_circle3" class="inner_circle3"></div>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		var height = 20
+		document.getElementById('middle_circle1').style.height = height + "%"
+		var element = document.getElementById('inner_circle1')
+
+		if (height < 30){
+			element.setAttribute("style", "border: solid 6px red; background:magenta");
+		}
+		else if(height < 60){
+			element.setAttribute("style", "border: solid 6px green; background:lightgreen")
+		}
+		else{
+			element.setAttribute("style", "border: solid 6px #95bee1; background:lightblue")
+		}
+
+		var height2 = 50
+		document.getElementById('middle_circle2').style.height = height2 + "%"
+		var element = document.getElementById('inner_circle2')
+
+		if (height2 < 30){
+			element.setAttribute("style", "border: solid 6px red; background:magenta");
+		}
+		else if(height2 < 60){
+			element.setAttribute("style", "border: solid 6px green; background:lightgreen")
+		}
+		else{
+			element.setAttribute("style", "border: solid 6px #95bee1; background:lightblue")
+		}
+
+		var height3 = 70
+		document.getElementById('middle_circle3').style.height = height3 + "%"
+		var element = document.getElementById('inner_circle3')
+
+		if (height3 < 30){
+			element.setAttribute("style", "border: solid 6px red; background:magenta");
+		}
+		else if(height3 < 60){
+			element.setAttribute("style", "border: solid 6px green; background:lightgreen")
+		}
+		else{
+			element.setAttribute("style", "border: solid 6px #95bee1; background:lightblue")
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,124 @@
+*{
+    		margin: 0;
+    		padding: 0;
+    		box-sizing: border-box;
+    	}
+
+    	.navbar{
+    		background-color: skyblue;
+    		display: block;
+    		/*margin-top: 0.1vh;*/
+    		margin-bottom: 1vh;
+    		padding: 0;
+    		padding-left: 7vw;
+    		text-align: center;
+            border-bottom: 1px solid lightblue;
+            border-top: 1px solid lightblue;
+    	}
+
+    	.nav-item{
+    		text-align: center;
+    		transform-style: preserve-3d;
+    	}
+
+    	.nav-link{
+    		/*margin-right: 3vh;*/
+    		color: black;
+    		text-transform: uppercase;
+    		font-weight: bold;
+    		position: relative;
+            border-right: 1px solid lightblue; 
+    	}
+
+    	.nav-link span{
+    		padding: 0.3vh;
+    		display: block;
+            font-size: 15px;
+    	}
+
+    	.nav-link span::before{
+    		content: attr(title);
+    		position: absolute;
+    		top: 0;
+    		left: 0;
+    		bottom: 0;
+    		right: 0;
+    		background: lightgreen;
+    		color: black;
+    		padding: 0.3vh;
+    		text-transform: uppercase;
+    		line-height: 6vh;
+    		font-weight: bold;
+    		transform-style: preserve-3d;
+    		transition: 0.4s;
+    		transform: rotateX(90deg) translateY(50px);
+    		transform-origin: bottom; 
+    	}
+
+    	.nav-link span:hover::before{
+    		transform: rotateX(0deg) translateY(0px);
+    	}
+
+    	.nav-link span::after{
+    		content: attr(title);
+    		position: absolute;
+    		top: 0;
+    		left: 0;
+    		bottom: 0;
+    		right: 0;
+    		background: white;
+    		color: black;
+    		padding: 0.3vh;
+    		text-transform: uppercase;
+    		line-height: 6vh;
+    		font-weight: bold;
+    		transform-style: preserve-3d;
+    		transition: 0.4s;
+    		transform: rotateX(0deg) translateY(0px);
+    		transform-origin: top; 
+    	}
+
+    	.nav-link span:hover::after{
+    		transform: rotateX(90deg) translateY(50px);
+    	}
+
+    	.night{
+    		background: #142634;
+    		color: white;
+    	}
+
+    	.toggle{
+    		position: absolute;
+    		background-color: white;
+    		width: 4vw;
+    		height: 4vh;
+    		margin-left: 87vw;
+    		margin-top: 1.5vh;
+    		border-radius: 5vw;
+    		cursor: pointer;
+    		transition: 0.5s;
+    		border: 2px solid #000;
+    	}
+
+    	.toggle::before{
+    		content: '';
+    		position: absolute;
+    		width: 1.5vw;
+    		height: 1.5vw;
+    		background-color: black;
+    		border-radius: 50%;
+    		top: 0.3vh;
+    		left: 0.35vw;
+    		transition: 0.5s;
+    	}
+
+    	.toggle.active{
+    		background-color: #00151f;
+    		border: 2px solid #fff;
+    	}
+
+    	.toggle.active::before{
+    		/*top: 0.4vh;*/
+    		left: 1.9vw;
+    		background: #fff;
+    	}
